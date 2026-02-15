@@ -1,0 +1,202 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: roboto;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: #6030b1;
+}
+
+.purple {
+  color: rgb(96, 48, 177);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+body {
+  scroll-behavior: smooth;
+  margin: 0;
+}
+
+
+
+
+/* 
+
+NAVIGATION
+
+*/
+
+.hero__bg {
+   position: relative;
+  height: 25vh;
+  min-height: 400px;
+  width: 100vw;           
+  margin-left: calc(-50vw + 50%);
+  overflow: hidden;
+}
+
+
+.hero__bg--img {
+  position: absolute;
+  inset: 0;
+  background-image: url("./assest/Watch-Free-Hero-2048x1152-1.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.35; 
+  z-index: 0;
+}
+
+
+.hero__bg > *:not(.hero__bg--img) {
+  position: relative;
+  z-index: 1;
+}
+
+.nav__bar {
+  width: 100%;
+  height: 165px;
+  padding: 0 50px;
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.img__logo {
+  width: 150px;
+  height: 40px;
+}
+
+.nav__bar--wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.nav__link--btn {
+  cursor: pointer;
+  max-height: 50px;
+  border: none;
+  border-radius: 50px;
+  font-size: 20px;
+  color: #fff;
+  background-color: #6030b1;
+  padding: 12px 40px;
+  letter-spacing: 1px;
+  align-items: center;
+  transition: all 400ms ease;
+}
+
+.nav__link--btn:hover {
+  background-color: #9456ff;
+}
+
+.nav__link {
+  position: relative;
+  display: inline-block;
+  font-size: 20px;
+  padding: 16px 16px;
+  text-decoration: none;
+  margin: 10px;
+  color: #6030b1;
+}
+
+.nav__link::after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: currentColor;
+  border-radius: 2px;
+
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 300ms ease;
+}
+
+.nav__link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* 
+
+CONTENT
+
+*/
+
+.content__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content__title {
+  font-size: 45px;
+  text-align: center;
+  font-weight: 500;
+  letter-spacing: 8px;
+  margin-bottom: 40px;
+  color: #6030b1;
+}
+
+.input__movies {
+  color: rgba(0, 0, 0, 0.87);
+  width: 100%;
+  max-width: 800px;
+  height: 60px;
+  font-size: 20px;
+  border-radius: 50px;
+  padding: 0 60px 0 25px;
+}
+
+.input__wrapper {
+  position: relative;
+  max-width: 600px;
+  width: 100%;
+}
+
+.fa-magnifying-glass {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #6030b1;
+  pointer-events: none;
+}
+
+/* 
+
+SEARCH
+
+*/
+
+#search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+#filter {
+  height: 35px;
+  padding: 0 12px;
+  font-size: 16px;
+  border-radius: 5px;
+}

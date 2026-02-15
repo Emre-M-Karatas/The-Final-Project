@@ -1,12 +1,60 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="./index.js"></script>
-</head>
-<body>
-    
-</body>
+    <link rel="stylesheet" href="./movie.css" />
+    <script
+      src="https://kit.fontawesome.com/d48f77a8cb.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <section class="hero__bg">
+      <div class="hero__bg--img"></div>
+
+      <header class="nav__bar container">
+        <div class="nav__bar--wrapper">
+          <a href="#" class="img__logo--wrapper">
+            <img
+              src="./assest/blinker-icon.4f9b2663-Photoroom.png"
+              class="img__logo"
+              alt=""
+            />
+          </a>
+          <div class="nav__link--list">
+            <a href="#" class="nav__link">Home</a>
+            <a href="#" class="nav__link">Find Your Movie</a>
+            <button class="nav__link--btn">Contact</button>
+          </div>
+        </div>
+      </header>
+      <section class="content__wrapper container">
+        <h1 class="content__title">Browse Movies</h1>
+        <div class="input__wrapper">
+          <input
+            type="text"
+            class="input__movies"
+            placeholder="Browse by Name or Year"
+          />
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+      </section>
+    </section>
+
+    <section id="search" class="container">
+      <div class="filter__content--wrapper">
+        <h1 class="filter__title">Search results for <span></span></h1>
+      </div>
+      <select id="filter">
+        <option value="" disabled selected>Sort</option>
+        <option value="A_to_Z">A to Z</option>
+        <option value="Z_to_A">Z to A</option>
+        <option value="Newest_to_Oldest">Newest to Oldest</option>
+        <option value="Oldest_to_Newest">Oldest to Newest</option>
+      </select>
+    </section>
+  </body>
 </html>
