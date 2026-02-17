@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="./index.js"></script>
+    <script src="./index.js" defer></script>
     <link rel="stylesheet" href="./movie.css" />
     <script
       src="https://kit.fontawesome.com/d48f77a8cb.js"
@@ -44,6 +44,8 @@
       </section>
     </section>
 
+    
+
     <section id="search" class="container">
       <div class="filter__content--wrapper">
         <h1 class="filter__title">Search results for <span></span></h1>
@@ -56,5 +58,13 @@
         <option value="Oldest_to_Newest">Oldest to Newest</option>
       </select>
     </section>
+
+    <section class="loading container">
+  <i class="fa-solid fa-spinner loading__spinner"></i>
+</section>
+
+    <section class="movies container">
+  <div class="movies__list"></div>
+</section>
   </body>
 </html>
