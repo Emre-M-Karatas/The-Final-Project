@@ -1,6 +1,7 @@
 let currentMovies = [];
 let moviesList = null;
 let loadingSection = null;
+let searchResultText = null;
 function wait(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -89,36 +90,55 @@ document.addEventListener("DOMContentLoaded", () => {
   const button = document.querySelector(".input__btn");
   const input = document.querySelector(".search__bar");
   const movieInput = document.querySelector(".input__movies");
+  searchResultText = document.querySelector(".filter__title span");
   moviesList = document.querySelector(".movies__list");
   loadingSection = document.querySelector(".loading");
 
   // MAIN PAGE
-  if (button && input && !moviesList) {
-    button.addEventListener("click", () => {
-      const searchValue = input.value.trim();
-      if (!searchValue) return;
-      window.location.href = `movie.html?search=${searchValue}`;
-    });
-  }
+ if (button && input && !moviesList) {
+  const goToMoviePage = () => {
+    const searchValue = input.value.trim();
+    if (!searchValue) return;
+    window.location.href = `movie.html?search=${searchValue}`;
+  };
+  button.addEventListener("click", goToMoviePage);
+  input.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      goToMoviePage();
+    }
+  });
+}
 
   // MOVIE PAGE (URL SEARCH)
   if (moviesList) {
     const params = new URLSearchParams(window.location.search);
     const searchValue = params.get("search");
 
+    const searchResultText = document.querySelector(".filter__title span");
+
+    if (searchResultText && searchValue) {
+      searchResultText.textContent = `"${searchValue}"`;
+    }
+
     if (searchValue) {
       fetchMovies(searchValue);
     }
-  }
+  } 
 
   // MOVIE PAGE (RE-SEARCH)
   if (movieInput && moviesList) {
-    movieInput.addEventListener("keyup", (event) => {
-      if (event.key === "Enter") {
-        const searchValue = movieInput.value.trim();
-        if (!searchValue) return;
-        fetchMovies(searchValue);
+  movieInput.addEventListener("keyup", (event) => {
+    if (event.key === "Enter") {
+      const searchValue = movieInput.value.trim();
+      if (!searchValue) return;
+
+      // ✅ update title text
+      if (searchResultText) {
+        searchResultText.textContent = `"${searchValue}"`;
       }
-    });
-  }
+
+      fetchMovies(searchValue);
+    }
+  });
+}
 });
